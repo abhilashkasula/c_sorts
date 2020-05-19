@@ -36,3 +36,19 @@ void selection_sort(Array_ptr void_array, Predicate predicate)
     void_array->array[index] = temp;
   }
 }
+
+void bubble_sort(Array_ptr void_array, Predicate predicate)
+{
+  for(int i = 0; i < void_array->length; i++)
+  {
+    for(int j = 1; j < void_array->length - i; j++)
+    {
+      if((*predicate)(void_array->array[j], void_array->array[j - 1]))
+      {
+        Object temp = void_array->array[j];
+        void_array->array[j] = void_array->array[j - 1];
+        void_array->array[j - 1] = temp;
+      }
+    }
+  }
+}

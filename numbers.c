@@ -104,12 +104,36 @@ void sort_strings(void)
   display_array(strings, &display_string);
 }
 
-int main(void)
+void perform_selection_sort(void)
 {
+  printf("Selection Sort\n");
   sort_chars();
   printf("\n");
   sort_numbers();
   printf("\n");
   sort_strings();
+}
+
+void perform_bubble_sort(void)
+{
+  Array_ptr numbers = create_array(7);
+  numbers->array[0] = create_int(10);
+  numbers->array[1] = create_int(5);
+  numbers->array[2] = create_int(8);
+  numbers->array[3] = create_int(2);
+  numbers->array[4] = create_int(13);
+  numbers->array[5] = create_int(12);
+  numbers->array[6] = create_int(1);
+
+  printf("\nBubble Sort\n");
+  display_array(numbers, &display_number);
+  bubble_sort(numbers, &is_number_lesser_than);
+  display_array(numbers, &display_number);
+}
+
+int main(void)
+{
+  perform_selection_sort();
+  perform_bubble_sort();
   return 0;
 }

@@ -26,5 +26,6 @@ typedef void (*Displayer)(Object);
 Array_ptr create_array(int);
 void display_array(Array_ptr, Displayer);
 void selection_sort(Array_ptr, Predicate);
+void bubble_sort(Array_ptr, Predicate);
 
 #endif
