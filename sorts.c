@@ -52,3 +52,16 @@ void bubble_sort(Array_ptr void_array, Predicate predicate)
     }
   }
 }
+
+void insertion_sort(Array_ptr void_array, Predicate predicate)
+{
+  for(int i = 1; i < void_array->length; i++)
+  {
+    for(int j = i; j > 0 && (*predicate)(void_array->array[j], void_array->array[j - 1]); j--)
+    {
+      Object temp = void_array->array[j];
+      void_array->array[j] = void_array->array[j - 1];
+      void_array->array[j - 1] = temp;
+    }
+  }
+}
