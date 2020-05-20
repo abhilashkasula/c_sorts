@@ -39,12 +39,15 @@ void selection_sort(Array_ptr void_array, Predicate predicate)
 
 void bubble_sort(Array_ptr void_array, Predicate predicate)
 {
-  for(int i = 0; i < void_array->length; i++)
+  int swap_count = 1;
+  for(int i = 0; swap_count != 0; i++)
   {
+    swap_count = 0;
     for(int j = 1; j < void_array->length - i; j++)
     {
       if((*predicate)(void_array->array[j], void_array->array[j - 1]))
       {
+        swap_count++;
         Object temp = void_array->array[j];
         void_array->array[j] = void_array->array[j - 1];
         void_array->array[j - 1] = temp;
