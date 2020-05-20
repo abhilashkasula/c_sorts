@@ -31,12 +31,12 @@ void bubble_sort(List_ptr list, Sort_predicate predicate)
   Node_ptr p_walk = list->first;
   int swap_count = 1;
 
-  while (p_walk != NULL && swap_count > 0)
+  for(int i = 0; p_walk != NULL && swap_count != 0; i++)
   {
     swap_count = 0;
     Node_ptr next = list->first->next;
 
-    while(next != NULL)
+    for(int j = 1; j < list->length - i && next != NULL; j++)
     {
       if((*predicate)(next->element, next->prev->element))
       {
@@ -61,7 +61,6 @@ void insertion_sort(List_ptr list, Sort_predicate predicate)
     Node_ptr prev = p_walk;
     while (prev->prev != NULL && (*predicate)(prev->element, prev->prev->element))
     {
-      printf("inside\n");
       Element temp = prev->element;
       prev->element = prev->prev->element;
       prev->prev->element = temp;
