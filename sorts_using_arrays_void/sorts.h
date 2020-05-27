@@ -28,5 +28,6 @@ void display_array(Array_ptr, Displayer);
 void selection_sort(Array_ptr, Predicate);
 void bubble_sort(Array_ptr, Predicate);
 void insertion_sort(Array_ptr, Predicate);
+void quick_sort(Array_ptr, int, int, Predicate);
 
 #endif

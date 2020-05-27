@@ -148,10 +148,30 @@ void perform_insertion_sort(void)
   display_array(numbers, &display_number);
 }
 
+void perform_quick_sort(void) {
+  Array_ptr numbers = create_array(10);
+  numbers->array[0] = create_int(1);
+  numbers->array[1] = create_int(5);
+  numbers->array[2] = create_int(3);
+  numbers->array[3] = create_int(7);
+  numbers->array[4] = create_int(6);
+  numbers->array[5] = create_int(0);
+  numbers->array[6] = create_int(13);
+  numbers->array[7] = create_int(12);
+  numbers->array[8] = create_int(8);
+  numbers->array[9] = create_int(9);
+
+  printf("\nQuick Sort\n");
+  display_array(numbers, &display_number);
+  quick_sort(numbers, 0, numbers->length - 1, &is_number_lesser_than);
+  display_array(numbers, &display_number);
+}
+
 int main(void)
 {
   perform_selection_sort();
   perform_bubble_sort();
   perform_insertion_sort();
+  perform_quick_sort();
   return 0;
 }
